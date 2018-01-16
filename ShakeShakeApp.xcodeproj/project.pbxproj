@@ -7,15 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8ABC152F1F36CD35CCE1C7FB /* Pods_ShakeShakeApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5B8DA87D8EDB7664C5A2879 /* Pods_ShakeShakeApp.framework */; };
 		9A37E0B12001B63B0079287F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A37E0B02001B63B0079287F /* AppDelegate.swift */; };
 		9A37E0B32001B63B0079287F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A37E0B22001B63B0079287F /* ViewController.swift */; };
 		9A37E0B62001B63B0079287F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A37E0B42001B63B0079287F /* Main.storyboard */; };
 		9A37E0B82001B63B0079287F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A37E0B72001B63B0079287F /* Assets.xcassets */; };
 		9A37E0BB2001B63B0079287F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A37E0B92001B63B0079287F /* LaunchScreen.storyboard */; };
 		9A6D5AE420043B2600617AE6 /* RegisterUsername.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6D5AE320043B2600617AE6 /* RegisterUsername.swift */; };
+		9AF3A3CD200D74F3001A03B9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9AF3A3CC200D74F3001A03B9 /* GoogleService-Info.plist */; };
+		9AF3A3CF200D8419001A03B9 /* MainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF3A3CE200D8419001A03B9 /* MainMenu.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6C7715463A2B780889421BA2 /* Pods-ShakeShakeApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShakeShakeApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShakeShakeApp/Pods-ShakeShakeApp.debug.xcconfig"; sourceTree = "<group>"; };
 		9A37E0AD2001B63B0079287F /* ShakeShakeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShakeShakeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A37E0B02001B63B0079287F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9A37E0B22001B63B0079287F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -24,6 +28,10 @@
 		9A37E0BA2001B63B0079287F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9A37E0BC2001B63C0079287F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9A6D5AE320043B2600617AE6 /* RegisterUsername.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUsername.swift; sourceTree = "<group>"; };
+		9AF3A3CC200D74F3001A03B9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
+		9AF3A3CE200D8419001A03B9 /* MainMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenu.swift; sourceTree = "<group>"; };
+		C5B8DA87D8EDB7664C5A2879 /* Pods_ShakeShakeApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShakeShakeApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD07DFEFA4E1CFDD4B886CF8 /* Pods-ShakeShakeApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShakeShakeApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-ShakeShakeApp/Pods-ShakeShakeApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +39,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8ABC152F1F36CD35CCE1C7FB /* Pods_ShakeShakeApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		624CD31C2F02EDAB4EC8A7B4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C5B8DA87D8EDB7664C5A2879 /* Pods_ShakeShakeApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		831E7DDC8BE32AF261890AED /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6C7715463A2B780889421BA2 /* Pods-ShakeShakeApp.debug.xcconfig */,
+				DD07DFEFA4E1CFDD4B886CF8 /* Pods-ShakeShakeApp.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		9A37E0A42001B63B0079287F = {
 			isa = PBXGroup;
 			children = (
 				9A37E0AF2001B63B0079287F /* ShakeShakeApp */,
 				9A37E0AE2001B63B0079287F /* Products */,
+				831E7DDC8BE32AF261890AED /* Pods */,
+				624CD31C2F02EDAB4EC8A7B4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,6 +84,7 @@
 		9A37E0AF2001B63B0079287F /* ShakeShakeApp */ = {
 			isa = PBXGroup;
 			children = (
+				9AF3A3CC200D74F3001A03B9 /* GoogleService-Info.plist */,
 				9A37E0BC2001B63C0079287F /* Info.plist */,
 				9A6D5AE2200437EC00617AE6 /* Supporting Files */,
 				9A6D5AE1200437D300617AE6 /* Model */,
@@ -71,6 +100,7 @@
 			children = (
 				9A37E0B22001B63B0079287F /* ViewController.swift */,
 				9A6D5AE320043B2600617AE6 /* RegisterUsername.swift */,
+				9AF3A3CE200D8419001A03B9 /* MainMenu.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -106,9 +136,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9A37E0BF2001B63C0079287F /* Build configuration list for PBXNativeTarget "ShakeShakeApp" */;
 			buildPhases = (
+				077D4D8F9FC703FCFB8D50FF /* [CP] Check Pods Manifest.lock */,
 				9A37E0A92001B63B0079287F /* Sources */,
 				9A37E0AA2001B63B0079287F /* Frameworks */,
 				9A37E0AB2001B63B0079287F /* Resources */,
+				12C7C97773B4184A14652EC4 /* [CP] Embed Pods Frameworks */,
+				7BAE0A3D81C33FDF39E2BC55 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -159,12 +192,73 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A37E0BB2001B63B0079287F /* LaunchScreen.storyboard in Resources */,
+				9AF3A3CD200D74F3001A03B9 /* GoogleService-Info.plist in Resources */,
 				9A37E0B82001B63B0079287F /* Assets.xcassets in Resources */,
 				9A37E0B62001B63B0079287F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		077D4D8F9FC703FCFB8D50FF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ShakeShakeApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		12C7C97773B4184A14652EC4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-ShakeShakeApp/Pods-ShakeShakeApp-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ShakeShakeApp/Pods-ShakeShakeApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7BAE0A3D81C33FDF39E2BC55 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ShakeShakeApp/Pods-ShakeShakeApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9A37E0A92001B63B0079287F /* Sources */ = {
@@ -174,6 +268,7 @@
 				9A37E0B32001B63B0079287F /* ViewController.swift in Sources */,
 				9A37E0B12001B63B0079287F /* AppDelegate.swift in Sources */,
 				9A6D5AE420043B2600617AE6 /* RegisterUsername.swift in Sources */,
+				9AF3A3CF200D8419001A03B9 /* MainMenu.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,6 +403,7 @@
 		};
 		9A37E0C02001B63C0079287F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6C7715463A2B780889421BA2 /* Pods-ShakeShakeApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -322,6 +418,7 @@
 		};
 		9A37E0C12001B63C0079287F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DD07DFEFA4E1CFDD4B886CF8 /* Pods-ShakeShakeApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

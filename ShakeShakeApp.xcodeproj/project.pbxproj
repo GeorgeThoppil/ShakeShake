@@ -13,6 +13,7 @@
 		9A37E0B62001B63B0079287F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A37E0B42001B63B0079287F /* Main.storyboard */; };
 		9A37E0B82001B63B0079287F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A37E0B72001B63B0079287F /* Assets.xcassets */; };
 		9A37E0BB2001B63B0079287F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A37E0B92001B63B0079287F /* LaunchScreen.storyboard */; };
+		9A6537D12010032E002C68F2 /* GameScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6537D02010032E002C68F2 /* GameScreen.swift */; };
 		9A6D5AE420043B2600617AE6 /* RegisterUsername.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6D5AE320043B2600617AE6 /* RegisterUsername.swift */; };
 		9AF3A3CD200D74F3001A03B9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9AF3A3CC200D74F3001A03B9 /* GoogleService-Info.plist */; };
 		9AF3A3CF200D8419001A03B9 /* MainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF3A3CE200D8419001A03B9 /* MainMenu.swift */; };
@@ -27,6 +28,7 @@
 		9A37E0B72001B63B0079287F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9A37E0BA2001B63B0079287F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9A37E0BC2001B63C0079287F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9A6537D02010032E002C68F2 /* GameScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScreen.swift; sourceTree = "<group>"; };
 		9A6D5AE320043B2600617AE6 /* RegisterUsername.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUsername.swift; sourceTree = "<group>"; };
 		9AF3A3CC200D74F3001A03B9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9AF3A3CE200D8419001A03B9 /* MainMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenu.swift; sourceTree = "<group>"; };
@@ -95,12 +97,21 @@
 			path = ShakeShakeApp;
 			sourceTree = "<group>";
 		};
-		9A6D5ADB20042E3800617AE6 /* Controller */ = {
+		9A6537D320100C7D002C68F2 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
 				9A37E0B22001B63B0079287F /* ViewController.swift */,
 				9A6D5AE320043B2600617AE6 /* RegisterUsername.swift */,
 				9AF3A3CE200D8419001A03B9 /* MainMenu.swift */,
+				9A6537D02010032E002C68F2 /* GameScreen.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		9A6D5ADB20042E3800617AE6 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9A6537D320100C7D002C68F2 /* ViewController */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -266,6 +277,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A37E0B32001B63B0079287F /* ViewController.swift in Sources */,
+				9A6537D12010032E002C68F2 /* GameScreen.swift in Sources */,
 				9A37E0B12001B63B0079287F /* AppDelegate.swift in Sources */,
 				9A6D5AE420043B2600617AE6 /* RegisterUsername.swift in Sources */,
 				9AF3A3CF200D8419001A03B9 /* MainMenu.swift in Sources */,

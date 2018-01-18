@@ -21,7 +21,7 @@ class RegisterUsername: UIViewController, UIApplicationDelegate {
         usernameInput.setBottomBorder()
         usernameInput.attributedPlaceholder = NSAttributedString(string: "Enter your username", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
         
-        //print(NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).last! as String)
+        print(NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).last! as String)
     }
     
     
@@ -41,21 +41,28 @@ class RegisterUsername: UIViewController, UIApplicationDelegate {
     
     //  =========================================================
     //  Method: registerUsername
-    //  Desc: Method that will annoymously register a username.
+    //  Desc: Set username default
     //  Args:   sender
     //  Return: None
     //  =========================================================
     @IBAction func registerUsername(_ sender: Any) {
+        
+        //set username and default highscore on register
         defaults.set(usernameInput.text!, forKey: "Username")
+        defaults.set("0", forKey: "Highscore")
+        
         performSegue(withIdentifier: "goToHomePage", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToHomePage" {
             if let destinationVC = segue.destination as? MainMenu {
-                if let userName =  defaults.string(forKey: "Username") {
+                if let userName =  defaults.string(forKey: "Username"), let highScore = defaults.string(forKey: "Highscore")  {
                        destinationVC.userNameFromSegue = userName
+                       destinationVC.highScoreFromSegue = highScore
                 }
+                
+                
             }
         }
     }
@@ -65,7 +72,7 @@ extension UITextField {
     
     //  =========================================================
     //  Method: setBottomBorder
-    //  Desc: Method that will give a UITextField bottom border only
+    //  Desc: Sets a UITextField bottom border
     //  Args:   None
     //  Return: None
     //  =========================================================

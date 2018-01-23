@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreMotion
 
 class GameScreen: UIViewController {
 
@@ -14,19 +15,12 @@ class GameScreen: UIViewController {
     @IBOutlet weak var inGameCountDown: UIImageView!
     @IBOutlet weak var gameTimer: UITextField!
     var timer = Timer()
+    let motionManager = CMMotionManager()
     
     override func viewDidLoad() {
-        super.viewDidLoad()          
+        super.viewDidLoad()
     }
-    
-    override func motionBegan(_ motion: UIEventSubtype, with event: UIEvent?) {
-        
-        //if the subtype is of motionshake and the timer has been started, increment the game score
-        if event?.subtype == UIEventSubtype.motionShake && timer.isValid {
-            gameScore.text = String(Int(gameScore.text!)! + 1)
-        }
-    }
-    
+
     override func viewDidAppear(_ animated: Bool) {
         
         if animated {
@@ -36,13 +30,17 @@ class GameScreen: UIViewController {
             inGameCountDown.animationDuration = 4
             inGameCountDown.startAnimating()
            
-            //wait for the GameCountDown to finish and start the game timer
+            //wait for the GameCountDown to finish and start the game timer and acceleration detection on the y-axis
             Timer.scheduledTimer(withTimeInterval: inGameCountDown.animationDuration, repeats: false, block: { (timer) in
                 self.gameTimer.text = "15"
                 self.inGameCountDown.image = UIImage(named: "ShakeShake")
                 self.startGameTimer()
+                self.motionManager.startDeviceMotionUpdates(to: OperationQueue.current!, withHandler: { (motion, error) in
+                    if(Int((motion?.userAcceleration.y.rounded())!) != 0) {
+                         self.gameScore.text = String(Int(self.gameScore.text!)! + 1)
+                    }
+                })
             })
-        
         }
     }
     
@@ -57,6 +55,7 @@ class GameScreen: UIViewController {
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (timer) in
             if Int(self.gameTimer.text!) == 0 {
                 timer.invalidate()
+                 self.motionManager.stopDeviceMotionUpdates()
                 print("asdasd")
             }
             else {

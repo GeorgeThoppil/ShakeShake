@@ -12,15 +12,15 @@ class MainMenu: UIViewController {
 
     @IBOutlet weak var userName: UITextField!
     @IBOutlet weak var highScore: UITextField!
-    var userNameFromSegue : String = ""
-    var highScoreFromSegue : String = ""
     
-
+    let defaults = UserDefaults.standard
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        userName.text = userNameFromSegue
-        highScore.text = highScoreFromSegue
-        // Do any additional setup after loading the view.
+        userName.text = defaults.string(forKey: "Username")
+        highScore.text = defaults.string(forKey: "Highscore")
+        
     }
 
     @IBAction func startGame(_ sender: Any) {

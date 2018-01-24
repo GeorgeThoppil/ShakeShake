@@ -53,19 +53,6 @@ class RegisterUsername: UIViewController, UIApplicationDelegate {
         
         performSegue(withIdentifier: "goToHomePage", sender: self)
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "goToHomePage" {
-            if let destinationVC = segue.destination as? MainMenu {
-                if let userName =  defaults.string(forKey: "Username"), let highScore = defaults.string(forKey: "Highscore")  {
-                       destinationVC.userNameFromSegue = userName
-                       destinationVC.highScoreFromSegue = highScore
-                }
-                
-                
-            }
-        }
-    }
 }
 
 extension UITextField {

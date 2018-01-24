@@ -14,9 +14,13 @@ class GameScreen: UIViewController {
     @IBOutlet weak var gameScore: UITextField!
     @IBOutlet weak var inGameCountDown: UIImageView!
     @IBOutlet weak var gameTimer: UITextField!
-    var timer = Timer()
-    let motionManager = CMMotionManager()
     
+    var score : Int! = 0
+    var timeLeft : Int! = 5
+    let motionManager = CMMotionManager()
+    let defaults = UserDefaults.standard
+    
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -32,34 +36,50 @@ class GameScreen: UIViewController {
            
             //wait for the GameCountDown to finish and start the game timer and acceleration detection on the y-axis
             Timer.scheduledTimer(withTimeInterval: inGameCountDown.animationDuration, repeats: false, block: { (timer) in
-                self.gameTimer.text = "15"
+                self.gameTimer.text = String(self.timeLeft)
                 self.inGameCountDown.image = UIImage(named: "ShakeShake")
                 self.startGameTimer()
                 self.motionManager.startDeviceMotionUpdates(to: OperationQueue.current!, withHandler: { (motion, error) in
                     if(Int((motion?.userAcceleration.y.rounded())!) != 0) {
-                         self.gameScore.text = String(Int(self.gameScore.text!)! + 1)
+                         self.score = self.score + 1
+                         self.gameScore.text = String(self.score)
                     }
                 })
             })
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToResults" {
+            
+            if let destinationVC = segue.destination as? Results {                 
+                if score > defaults.integer(forKey: "Highscore") {
+                    defaults.set(String(score), forKey: "Highscore")
+                    destinationVC.isNewHighScore = true
+                }
+                destinationVC.score = score
+            }
+        }
+    }
+    
     
     //  =========================================================
     //  Method: startGameTimer
-    //  Desc:   Start the game timer and decrement every second till it reaches 0. Perform segue to results screen thereafter
+    //  Desc:   Start the game timer and decrement every second till it reaches 0.
+    //          Check if it is highscore and perform segue to results screen
     //  Args:   None
     //  Return: None
     //  =========================================================
     func startGameTimer() {
-        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (timer) in
-            if Int(self.gameTimer.text!) == 0 {
+        Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (timer) in
+            self.timeLeft = self.timeLeft - 1
+            if self.timeLeft == 0 {
                 timer.invalidate()
-                 self.motionManager.stopDeviceMotionUpdates()
-                print("asdasd")
+                self.motionManager.stopDeviceMotionUpdates()
+                self.performSegue(withIdentifier: "goToResults", sender: self)
             }
             else {
-                 self.gameTimer.text = String((Int(self.gameTimer.text!)! - 1))
+                self.gameTimer.text = String(self.timeLeft)
             }
         })
     }

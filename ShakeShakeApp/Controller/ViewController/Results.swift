@@ -23,5 +23,4 @@ class Results: UIViewController {
     @IBAction func goHome(_ sender: Any) {
         performSegue(withIdentifier: "goToHome", sender: self)
     }
-    
 }

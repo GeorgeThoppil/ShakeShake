@@ -23,21 +23,16 @@ class RegisterUsername: UIViewController, UIApplicationDelegate {
         
         print(NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).last! as String)
     }
-    
-    
+        
     override func viewDidAppear(_ animated: Bool) {
         if defaults.string(forKey: "Username") != nil  {
             performSegue(withIdentifier: "goToHomePage", sender: self)
         }
     }
-    
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
         
-        FirebaseApp.configure()
-        return true
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
     }
-    
-    
     
     //  =========================================================
     //  Method: registerUsername
@@ -47,9 +42,11 @@ class RegisterUsername: UIViewController, UIApplicationDelegate {
     //  =========================================================
     @IBAction func registerUsername(_ sender: Any) {
         
-        //set username and default highscore on register
+        //set username, highscore, totalscore, darkmode on register
         defaults.set(usernameInput.text!, forKey: "Username")
         defaults.set("0", forKey: "Highscore")
+        defaults.set(0, forKey: "Totalscore")
+        defaults.set(false, forKey: "UnlockDarkMode")
         
         performSegue(withIdentifier: "goToHomePage", sender: self)
     }

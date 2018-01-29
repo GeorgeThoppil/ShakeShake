@@ -8,6 +8,8 @@
 
 import UIKit
 import CoreMotion
+import AudioToolbox
+import Firebase
 
 class GameScreen: UIViewController {
 
@@ -17,14 +19,16 @@ class GameScreen: UIViewController {
     
     var score : Int! = 0
     var timeLeft : Int! = 5
+    let darkModePointsNeeded : Int! = 100000
     let motionManager = CMMotionManager()
     let defaults = UserDefaults.standard
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
+    
     }
-
+    
     override func viewDidAppear(_ animated: Bool) {
         
         if animated {
@@ -56,12 +60,29 @@ class GameScreen: UIViewController {
                 if score > defaults.integer(forKey: "Highscore") {
                     defaults.set(String(score), forKey: "Highscore")
                     destinationVC.isNewHighScore = true
+                    
+                    //register highscore to firebase
+                    let ref = Database.database().reference().child("scores")
+                    if let firebaseID = defaults.string(forKey: "FirebaseID") {
+                        ref.child(firebaseID).setValue(["username": self.defaults.string(forKey: "Username")!, "score":self.score])
+                    }
+                    else
+                    {
+                        ref.childByAutoId().setValue(["username": self.defaults.string(forKey: "Username")!, "score":self.score], withCompletionBlock: { (err, ref) in
+                            self.defaults.set(ref.key, forKey: "FirebaseID")
+                        })
+                    }
+                    
+             
+                }
+                defaults.set(String(score + defaults.integer(forKey: "Totalscore")) , forKey: "Totalscore")
+                if defaults.integer(forKey: "Totalscore") > darkModePointsNeeded {
+                    defaults.set(true, forKey: "UnlockDarkMode")
                 }
                 destinationVC.score = score
             }
         }
     }
-    
     
     //  =========================================================
     //  Method: startGameTimer
@@ -79,6 +100,11 @@ class GameScreen: UIViewController {
                 self.performSegue(withIdentifier: "goToResults", sender: self)
             }
             else {
+                //start vibration
+                if(self.timeLeft  <= 3)
+                {
+                     AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
+                }
                 self.gameTimer.text = String(self.timeLeft)
             }
         })

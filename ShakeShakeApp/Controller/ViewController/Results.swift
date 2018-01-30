@@ -11,9 +11,7 @@ import Firebase
 
 class Results: UIViewController {
     
-
-    var score:Int!
-    var isNewHighScore:Bool! = false
+    var currentPlayerResults : Player!
     
     override func viewDidLoad() {
         super.viewDidLoad()

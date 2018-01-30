@@ -60,27 +60,8 @@ class GameScreen: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToResults" {
             
-            if let destinationVC = segue.destination as? Results {
-                
-//                //calculate new total score and save locally
-//                let newTotalScore = currentPlayer.inGameScore + currentPlayer.totalScore
-//                currentPlayer.totalScore = newTotalScore
-//                defaults.set(newTotalScore , forKey: "totalScore")
-//
-//                //new total score exceeds the dark mode points needed, set flag to be true
-//                if newTotalScore > darkModePointsNeeded {
-//                    currentPlayer.unlockedDarkMode = true
-//                    defaults.set(true, forKey: "UnlockDarkMode")
-//                }
-//
-//                if currentPlayer.inGameScore > currentPlayer.highScore {
-//                    defaults.set(currentPlayer.inGameScore, forKey: "highScore")
-//                    currentPlayer.highScore = currentPlayer.inGameScore
-//                    destinationVC.isNewHighScore = true
-//                }
-             
-               
-                destinationVC.score = currentPlayer.inGameScore
+            if let destinationVC = segue.destination as? Results {               
+                destinationVC.currentPlayerResults = currentPlayer
             }
         }
     }

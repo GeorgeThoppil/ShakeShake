@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class RegisterUsername: UIViewController, UIApplicationDelegate {
+class RegisterNewPlayer: UIViewController, UIApplicationDelegate {
     
     @IBOutlet weak var usernameInput: UITextField!
     let defaults = UserDefaults.standard
@@ -25,7 +25,7 @@ class RegisterUsername: UIViewController, UIApplicationDelegate {
     }
         
     override func viewDidAppear(_ animated: Bool) {
-        if defaults.string(forKey: "Username") != nil  {
+        if defaults.string(forKey: "userName") != nil  {
             performSegue(withIdentifier: "goToHomePage", sender: self)
         }
     }
@@ -34,21 +34,37 @@ class RegisterUsername: UIViewController, UIApplicationDelegate {
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
+    
     //  =========================================================
-    //  Method: registerUsername
-    //  Desc: Set username default
+    //  Method: registerNewPlayer
+    //  Desc:  Set up new Player
     //  Args:   sender
     //  Return: None
     //  =========================================================
-    @IBAction func registerUsername(_ sender: Any) {
+    @IBAction func registerNewPlayer(_ sender: Any) {
         
-        //set username, highscore, totalscore, darkmode on register
-        defaults.set(usernameInput.text!, forKey: "Username")
-        defaults.set("0", forKey: "Highscore")
-        defaults.set(0, forKey: "Totalscore")
-        defaults.set(false, forKey: "UnlockDarkMode")
+        //register new player to firebase and save defaults
+        let ref = Database.database().reference().child("scores")
+        ref.childByAutoId().setValue(["userName": usernameInput.text!, "highScore": 0, "totalScore" : 0, "unlockedDarkMode" : false], withCompletionBlock: { (err, ref) in
+            
+            if err != nil {
+                print(err)
+            }
+            else
+            {
+                  //set username, highscore, totalscore, darkmode on register
+                let newPlayer =  Player(highScore: 0, totalScore: 0, username: self.usernameInput.text!, fireBaseId : ref.key)
+                
+                self.defaults.set(newPlayer.username, forKey: "userName")
+                self.defaults.set(newPlayer.highScore, forKey: "highScore")
+                self.defaults.set(newPlayer.totalScore, forKey: "totalScore")
+                self.defaults.set(false, forKey: "unlockDarkMode")
+                self.defaults.set(ref.key, forKey: "fireBaseId")
+                
+                self.performSegue(withIdentifier: "goToHomePage", sender: self)
+            }
         
-        performSegue(withIdentifier: "goToHomePage", sender: self)
+        })
     }
 }
 

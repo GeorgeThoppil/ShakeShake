@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Firebase
 
 class MainMenu: UIViewController {
 
@@ -20,9 +19,9 @@ class MainMenu: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        userName.text = defaults.string(forKey: "Username")
-        highScore.text = defaults.string(forKey: "Highscore")
-        totalScore.text = defaults.string(forKey: "Totalscore")
+        userName.text = defaults.string(forKey: "userName")
+        highScore.text = defaults.string(forKey: "highScore")
+        totalScore.text = defaults.string(forKey: "totalScore")
         
     }
     

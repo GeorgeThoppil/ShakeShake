@@ -31,7 +31,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a4n-fU-45Z">
-                                <rect key="frame" x="87.666666666666686" y="198" width="239" height="152.66666666666663"/>
+                                <rect key="frame" x="87.666666666666686" y="154" width="239" height="152.66666666666663"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1KG-TF-e0i">
                                         <rect key="frame" x="0.0" y="0.0" width="239" height="152.66666666666666"/>
@@ -51,7 +51,7 @@
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="1hh-r8-Jt7">
-                                <rect key="frame" x="100" y="419.66666666666669" width="214" height="31"/>
+                                <rect key="frame" x="100" y="375.66666666666669" width="214" height="31"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ddq-GR-3kr">
                                         <rect key="frame" x="0.0" y="0.0" width="214" height="31"/>
@@ -65,7 +65,7 @@
                                         </connections>
                                     </button>
                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YDT-tU-2gP">
-                                        <rect key="frame" x="0.0" y="-419.66666666666669" width="214" height="0.0"/>
+                                        <rect key="frame" x="0.0" y="-375.66666666666669" width="214" height="0.0"/>
                                         <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="17"/>
                                         <state key="normal" title="Remove AD">
@@ -75,7 +75,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="lcb-Yc-Q2S">
-                                <rect key="frame" x="45" y="79" width="324" height="83"/>
+                                <rect key="frame" x="45" y="35" width="324" height="83"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xEY-Xk-5nJ">
                                         <rect key="frame" x="0.0" y="0.0" width="324" height="27"/>
@@ -199,13 +199,13 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="dTb-cl-Fzn">
                                 <rect key="frame" x="100" y="129.66666666666666" width="214" height="85"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Score" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="N9L-SH-KxC">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="N9L-SH-KxC">
                                         <rect key="frame" x="0.0" y="0.0" width="214" height="36"/>
                                         <color key="textColor" red="0.082750849425792694" green="0.043701395392417908" blue="0.022060103714466095" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="30"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3U1-Va-fo9">
+                                    <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3U1-Va-fo9">
                                         <rect key="frame" x="0.0" y="51" width="214" height="34"/>
                                         <color key="textColor" red="0.9986223578453064" green="0.038366347551345825" blue="0.036372136324644089" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
@@ -240,6 +240,7 @@
                     </view>
                     <connections>
                         <outlet property="gameScore" destination="3U1-Va-fo9" id="3Bo-qk-UEJ"/>
+                        <outlet property="gameScoreTitle" destination="N9L-SH-KxC" id="C5K-DZ-tER"/>
                         <outlet property="gameTimer" destination="qeN-8z-Xty" id="MCT-w6-aAb"/>
                         <outlet property="inGameCountDown" destination="gzo-vQ-j3a" id="dZT-pF-Afk"/>
                         <segue destination="5DD-lw-8AP" kind="show" identifier="goToResults" id="h3Y-bO-bOF"/>
@@ -352,10 +353,10 @@
             </objects>
             <point key="canvasLocation" x="-1141" y="141"/>
         </scene>
-        <!--Register Username-->
+        <!--Register New Player-->
         <scene sceneID="XUz-jP-Fjd">
             <objects>
-                <viewController id="Aro-IR-RFQ" customClass="RegisterUsername" customModule="ShakeShakeApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Aro-IR-RFQ" customClass="RegisterNewPlayer" customModule="ShakeShakeApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rdo-qB-83g">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -378,7 +379,7 @@
                                     <color key="titleColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="registerUsername:" destination="Aro-IR-RFQ" eventType="touchUpInside" id="0L1-Zj-4WM"/>
+                                    <action selector="registerNewPlayer:" destination="Aro-IR-RFQ" eventType="touchUpInside" id="TX0-Q3-OlV"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" highlighted="YES" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EsF-0H-Ooi">
@@ -428,6 +429,6 @@
         <image name="StartGame" width="178" height="109"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="UPf-kX-E9V"/>
+        <segue reference="aVD-PU-1PI"/>
     </inferredMetricsTieBreakers>
 </document>

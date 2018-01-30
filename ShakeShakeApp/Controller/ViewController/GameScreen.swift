@@ -62,41 +62,65 @@ class GameScreen: UIViewController {
             
             if let destinationVC = segue.destination as? Results {
                 
-                //calculate new total score and save locally
-                let newTotalScore = currentPlayer.inGameScore + currentPlayer.totalScore
-                currentPlayer.totalScore = newTotalScore
-                defaults.set(newTotalScore , forKey: "totalScore")
-                
-                //new total score exceeds the dark mode points needed, set flag to be true
-                if newTotalScore > darkModePointsNeeded {
-                    currentPlayer.unlockedDarkMode = true
-                    defaults.set(true, forKey: "UnlockDarkMode")
-                }
-                
-                if currentPlayer.inGameScore > currentPlayer.highScore {
-                    defaults.set(currentPlayer.inGameScore, forKey: "highScore")
-                    currentPlayer.highScore = currentPlayer.inGameScore
-                    destinationVC.isNewHighScore = true
-                }
+//                //calculate new total score and save locally
+//                let newTotalScore = currentPlayer.inGameScore + currentPlayer.totalScore
+//                currentPlayer.totalScore = newTotalScore
+//                defaults.set(newTotalScore , forKey: "totalScore")
+//
+//                //new total score exceeds the dark mode points needed, set flag to be true
+//                if newTotalScore > darkModePointsNeeded {
+//                    currentPlayer.unlockedDarkMode = true
+//                    defaults.set(true, forKey: "UnlockDarkMode")
+//                }
+//
+//                if currentPlayer.inGameScore > currentPlayer.highScore {
+//                    defaults.set(currentPlayer.inGameScore, forKey: "highScore")
+//                    currentPlayer.highScore = currentPlayer.inGameScore
+//                    destinationVC.isNewHighScore = true
+//                }
              
-                publishToFireBase(values: ["userName": currentPlayer.username, "highScore": currentPlayer.highScore, "totalScore": currentPlayer.totalScore, "unlockedDarkMode" : currentPlayer.unlockedDarkMode])
+               
                 destinationVC.score = currentPlayer.inGameScore
             }
         }
     }
     
+    //  =========================================================
+    //  Method: saveResults
+    //  Desc:   Save game results locally and to the player object
+    //  Args:   None
+    //  Return: None
+    //  =========================================================
+    func saveResults() -> Void {
+        
+        //calculate new total score and save locally
+        let newTotalScore = currentPlayer.inGameScore + currentPlayer.totalScore
+        currentPlayer.totalScore = newTotalScore
+        defaults.set(newTotalScore , forKey: "totalScore")
+        
+        //new total score exceeds the dark mode points needed, set flag to be true
+        if newTotalScore > darkModePointsNeeded {
+            currentPlayer.unlockedDarkMode = true
+            defaults.set(true, forKey: "UnlockDarkMode")
+        }
+        
+        //if in game score is higher than current highscore, register new game score as highscore
+        if currentPlayer.inGameScore > currentPlayer.highScore {
+            defaults.set(currentPlayer.inGameScore, forKey: "highScore")
+            currentPlayer.highScore = currentPlayer.inGameScore
+        }
+    }
+    
+    //  =========================================================
+    //  Method: publishToFireBase
+    //  Desc:   Publish the game results back to firebase
+    //  Args:   Dictionary<String, Any>
+    //  Return: None
+    //  =========================================================
     func publishToFireBase(values : Dictionary<String, Any>) -> Void {
         let ref = Database.database().reference().child("scores")
         ref.child(currentPlayer.fireBaseId ).setValue(values, withCompletionBlock: { (err, db) in
-            self.getTopTenHighScores()
-        })
-    }
-    
-    func getTopTenHighScores() -> Void {
-        Database.database().reference().child("scores").queryOrdered(byChild: "highScore").queryLimited(toFirst: 10).observe(.childAdded, with: { (snapShot) in
-            print(snapShot)
-        }, withCancel: { (err) in
-            
+           self.performSegue(withIdentifier: "goToResults", sender: self)
         })
     }
     
@@ -104,7 +128,8 @@ class GameScreen: UIViewController {
     //  =========================================================
     //  Method: startGameTimer
     //  Desc:   Start the game timer and decrement every second till it reaches 0.
-    //          Check if it is highscore and perform segue to results screen
+    //          Once it reaches 0, save the results locally, publish results to firebase
+    //          and preform segue to next screen
     //  Args:   None
     //  Return: None
     //  =========================================================
@@ -114,7 +139,8 @@ class GameScreen: UIViewController {
             if self.timeLeft == 0 {
                 timer.invalidate()
                 self.motionManager.stopDeviceMotionUpdates()
-                self.performSegue(withIdentifier: "goToResults", sender: self)
+                self.saveResults()
+                self.publishToFireBase(values: ["userName": self.currentPlayer.username, "highScore": self.currentPlayer.highScore, "totalScore": self.currentPlayer.totalScore, "unlockedDarkMode" : self.currentPlayer.unlockedDarkMode])
             }
             else {
                 //start vibration

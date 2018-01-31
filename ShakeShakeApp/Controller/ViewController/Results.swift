@@ -12,23 +12,24 @@ import Firebase
 class Results: UIViewController {
     
     var currentPlayerResults : Player!
+    let scoresRef = Database.database().reference(withPath: "scores")
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        scoresRef.keepSynced(true)
+        getTopTenHighScores()
     }
     
     
     
-    //    func getTopTenHighScores() -> Void {
-    //        Database.database().reference().child("scores").queryOrdered(byChild: "highScore").queryLimited(toFirst: 10).observe(.childAdded, with: { (snapShot) in
-    //            print(snapShot)
-    //        }, withCancel: { (err) in
-    //
-    //        })
-    //    }
-    //
+        func getTopTenHighScores() -> Void {
+            scoresRef.queryOrdered(byChild: "highScore").queryLimited(toFirst: 10).observe(.childAdded, with: { (snapShot) in
+                print(snapShot)
+            }, withCancel: { (err) in
+    
+            })
+        }
+    
     
     
     @IBAction func goHome(_ sender: Any) {

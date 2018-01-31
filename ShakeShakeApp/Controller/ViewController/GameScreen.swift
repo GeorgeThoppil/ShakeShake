@@ -100,9 +100,7 @@ class GameScreen: UIViewController {
     //  =========================================================
     func publishToFireBase(values : Dictionary<String, Any>) -> Void {
         let ref = Database.database().reference().child("scores")
-        ref.child(currentPlayer.fireBaseId ).setValue(values, withCompletionBlock: { (err, db) in
-           self.performSegue(withIdentifier: "goToResults", sender: self)
-        })
+        ref.child(currentPlayer.fireBaseId ).setValue(values)
     }
     
     
@@ -122,6 +120,7 @@ class GameScreen: UIViewController {
                 self.motionManager.stopDeviceMotionUpdates()
                 self.saveResults()
                 self.publishToFireBase(values: ["userName": self.currentPlayer.username, "highScore": self.currentPlayer.highScore, "totalScore": self.currentPlayer.totalScore, "unlockedDarkMode" : self.currentPlayer.unlockedDarkMode])
+                self.performSegue(withIdentifier: "goToResults", sender: self)
             }
             else {
                 //start vibration

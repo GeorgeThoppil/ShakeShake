@@ -15,10 +15,15 @@ class TopTenTotalScores: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        print("total scores")
         // Do any additional setup after loading the view.
     }
     
+//    override func viewDidAppear(_ animated: Bool) {
+//        if animated {
+//            print("asdasda")
+//        }
+//    }
     
     func getTopTenTotalScores() -> Void {
         scoresRef.queryOrdered(byChild: "totalScore").queryLimited(toFirst: 10).observe(.childAdded, with: { (snapShot) in

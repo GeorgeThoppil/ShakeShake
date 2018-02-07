@@ -19,6 +19,7 @@
 		9A37E0B82001B63B0079287F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A37E0B72001B63B0079287F /* Assets.xcassets */; };
 		9A37E0BB2001B63B0079287F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A37E0B92001B63B0079287F /* LaunchScreen.storyboard */; };
 		9A3EC8EC201FF1CC00D4ED19 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3EC8EB201FF1CC00D4ED19 /* Player.swift */; };
+		9A483871202AA62E00AE1C20 /* TopTenTotalScoresTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A483870202AA62E00AE1C20 /* TopTenTotalScoresTableViewCell.swift */; };
 		9A6537D12010032E002C68F2 /* GameScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6537D02010032E002C68F2 /* GameScreen.swift */; };
 		9A6D5AE420043B2600617AE6 /* RegisterNewPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6D5AE320043B2600617AE6 /* RegisterNewPlayer.swift */; };
 		9A71324820292384006DF993 /* TopTenHighScoresTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A71324720292384006DF993 /* TopTenHighScoresTableViewCell.swift */; };
@@ -40,6 +41,7 @@
 		9A37E0BA2001B63B0079287F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9A37E0BC2001B63C0079287F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9A3EC8EB201FF1CC00D4ED19 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		9A483870202AA62E00AE1C20 /* TopTenTotalScoresTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopTenTotalScoresTableViewCell.swift; sourceTree = "<group>"; };
 		9A6537D02010032E002C68F2 /* GameScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScreen.swift; sourceTree = "<group>"; };
 		9A6D5AE320043B2600617AE6 /* RegisterNewPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterNewPlayer.swift; sourceTree = "<group>"; };
 		9A71324720292384006DF993 /* TopTenHighScoresTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopTenHighScoresTableViewCell.swift; sourceTree = "<group>"; };
@@ -80,10 +82,10 @@
 		9A2C4CB62026BD19005EAFD7 /* GameResults */ = {
 			isa = PBXGroup;
 			children = (
-				9A71324620292363006DF993 /* TopTenScores */,
-				9A2C0CA22017FBB900E45DF4 /* Results.swift */,
+				9A483872202AA68E00AE1C20 /* Results */,
+				9A48386D202AA54E00AE1C20 /* TopTenTotalScores */,
+				9A71324620292363006DF993 /* TopTenHighScores */,
 				9A2C4CB42026B42E005EAFD7 /* ResultsPageViewController.swift */,
-				9A2C4CB92026BD70005EAFD7 /* TopTenTotalScores.swift */,
 			);
 			path = GameResults;
 			sourceTree = "<group>";
@@ -118,6 +120,23 @@
 				9A37E0B02001B63B0079287F /* AppDelegate.swift */,
 			);
 			path = ShakeShakeApp;
+			sourceTree = "<group>";
+		};
+		9A48386D202AA54E00AE1C20 /* TopTenTotalScores */ = {
+			isa = PBXGroup;
+			children = (
+				9A2C4CB92026BD70005EAFD7 /* TopTenTotalScores.swift */,
+				9A483870202AA62E00AE1C20 /* TopTenTotalScoresTableViewCell.swift */,
+			);
+			path = TopTenTotalScores;
+			sourceTree = "<group>";
+		};
+		9A483872202AA68E00AE1C20 /* Results */ = {
+			isa = PBXGroup;
+			children = (
+				9A2C0CA22017FBB900E45DF4 /* Results.swift */,
+			);
+			path = Results;
 			sourceTree = "<group>";
 		};
 		9A6537D320100C7D002C68F2 /* ViewControllers */ = {
@@ -165,13 +184,13 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		9A71324620292363006DF993 /* TopTenScores */ = {
+		9A71324620292363006DF993 /* TopTenHighScores */ = {
 			isa = PBXGroup;
 			children = (
 				9A2C4CB72026BD5D005EAFD7 /* TopTenHighScores.swift */,
 				9A71324720292384006DF993 /* TopTenHighScoresTableViewCell.swift */,
 			);
-			path = TopTenScores;
+			path = TopTenHighScores;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -310,6 +329,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A483871202AA62E00AE1C20 /* TopTenTotalScoresTableViewCell.swift in Sources */,
 				9A2C4CB52026B42E005EAFD7 /* ResultsPageViewController.swift in Sources */,
 				9A3EC8EC201FF1CC00D4ED19 /* Player.swift in Sources */,
 				9A36D15C201E6F4A0002E0E7 /* Settings.swift in Sources */,

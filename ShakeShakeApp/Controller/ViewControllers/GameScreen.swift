@@ -19,7 +19,7 @@ class GameScreen: UIViewController {
     @IBOutlet weak var gameScoreTitle: UITextField!
     
 
-    var timeLeft : Int! = 15
+    var timeLeft : Int! = 1
     let darkModePointsNeeded : Int! = 100000
     let motionManager = CMMotionManager()
     let defaults = UserDefaults.standard

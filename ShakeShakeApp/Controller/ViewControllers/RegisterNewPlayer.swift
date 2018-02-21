@@ -29,10 +29,6 @@ class RegisterNewPlayer: UIViewController, UIApplicationDelegate {
             performSegue(withIdentifier: "goToHomePage", sender: self)
         }
     }
-        
-    override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.setNavigationBarHidden(true, animated: animated)
-    }
     
     
     //  =========================================================

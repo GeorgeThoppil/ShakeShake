@@ -14,7 +14,7 @@ class Results: UIViewController {
     @IBAction func goToMenu(_ sender: Any) {
      performSegue(withIdentifier: "goToMenu", sender: self)
     }
-    var currentPlayerResults : Player!
+    var currentPlayer : Player!
     let scoresRef = Database.database().reference(withPath: "scores")
     
     override func viewDidLoad() {

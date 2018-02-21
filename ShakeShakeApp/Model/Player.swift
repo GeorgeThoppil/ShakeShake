@@ -24,4 +24,25 @@ class Player {
         self.username = username
         self.fireBaseId = fireBaseId
     }
+    
+    func isSkinUnlocked(skinName:String) -> Bool {
+        
+        if  self.totalScore >= GameSettings.unlockSkinPoints[skinName]!  {
+            return true
+        }
+        
+        return false
+    }
+    
+    func getUnlockedSkins() -> [String:Bool] {
+        
+        var unlockedSkins : [String:Bool] = [:]
+       
+        for(skinName, value) in GameSettings.unlockSkinPoints {
+            let unlockedSkin = self.totalScore >= value
+            unlockedSkins.updateValue(unlockedSkin, forKey: skinName)
+        }
+        
+        return unlockedSkins
+    }
 }

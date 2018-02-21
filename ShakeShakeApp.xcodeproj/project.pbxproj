@@ -8,12 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		8ABC152F1F36CD35CCE1C7FB /* Pods_ShakeShakeApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5B8DA87D8EDB7664C5A2879 /* Pods_ShakeShakeApp.framework */; };
+		9A2609FB203CE98700C9BB74 /* GameSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2609FA203CE98700C9BB74 /* GameSettings.swift */; };
 		9A2C0CA32017FBB900E45DF4 /* Results.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2C0CA22017FBB900E45DF4 /* Results.swift */; };
 		9A2C4CB52026B42E005EAFD7 /* ResultsPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2C4CB42026B42E005EAFD7 /* ResultsPageViewController.swift */; };
 		9A2C4CB82026BD5D005EAFD7 /* TopTenHighScores.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2C4CB72026BD5D005EAFD7 /* TopTenHighScores.swift */; };
 		9A2C4CBA2026BD70005EAFD7 /* TopTenTotalScores.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2C4CB92026BD70005EAFD7 /* TopTenTotalScores.swift */; };
 		9A2C4CBC20281271005EAFD7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9A2C4CBB20281271005EAFD7 /* GoogleService-Info.plist */; };
-		9A36D15C201E6F4A0002E0E7 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A36D15B201E6F4A0002E0E7 /* Settings.swift */; };
+		9A36D15C201E6F4A0002E0E7 /* SelectInGameShakePic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A36D15B201E6F4A0002E0E7 /* SelectInGameShakePic.swift */; };
 		9A37E0B12001B63B0079287F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A37E0B02001B63B0079287F /* AppDelegate.swift */; };
 		9A37E0B62001B63B0079287F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A37E0B42001B63B0079287F /* Main.storyboard */; };
 		9A37E0B82001B63B0079287F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A37E0B72001B63B0079287F /* Assets.xcassets */; };
@@ -28,12 +29,13 @@
 
 /* Begin PBXFileReference section */
 		6C7715463A2B780889421BA2 /* Pods-ShakeShakeApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShakeShakeApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShakeShakeApp/Pods-ShakeShakeApp.debug.xcconfig"; sourceTree = "<group>"; };
+		9A2609FA203CE98700C9BB74 /* GameSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSettings.swift; sourceTree = "<group>"; };
 		9A2C0CA22017FBB900E45DF4 /* Results.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Results.swift; sourceTree = "<group>"; };
 		9A2C4CB42026B42E005EAFD7 /* ResultsPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsPageViewController.swift; sourceTree = "<group>"; };
 		9A2C4CB72026BD5D005EAFD7 /* TopTenHighScores.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopTenHighScores.swift; sourceTree = "<group>"; };
 		9A2C4CB92026BD70005EAFD7 /* TopTenTotalScores.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopTenTotalScores.swift; sourceTree = "<group>"; };
 		9A2C4CBB20281271005EAFD7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		9A36D15B201E6F4A0002E0E7 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		9A36D15B201E6F4A0002E0E7 /* SelectInGameShakePic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectInGameShakePic.swift; sourceTree = "<group>"; };
 		9A37E0AD2001B63B0079287F /* ShakeShakeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShakeShakeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A37E0B02001B63B0079287F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9A37E0B52001B63B0079287F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -146,7 +148,7 @@
 				9A6D5AE320043B2600617AE6 /* RegisterNewPlayer.swift */,
 				9AF3A3CE200D8419001A03B9 /* MainMenu.swift */,
 				9A6537D02010032E002C68F2 /* GameScreen.swift */,
-				9A36D15B201E6F4A0002E0E7 /* Settings.swift */,
+				9A36D15B201E6F4A0002E0E7 /* SelectInGameShakePic.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -172,6 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				9A3EC8EB201FF1CC00D4ED19 /* Player.swift */,
+				9A2609FA203CE98700C9BB74 /* GameSettings.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -332,13 +335,14 @@
 				9A483871202AA62E00AE1C20 /* TopTenTotalScoresTableViewCell.swift in Sources */,
 				9A2C4CB52026B42E005EAFD7 /* ResultsPageViewController.swift in Sources */,
 				9A3EC8EC201FF1CC00D4ED19 /* Player.swift in Sources */,
-				9A36D15C201E6F4A0002E0E7 /* Settings.swift in Sources */,
+				9A36D15C201E6F4A0002E0E7 /* SelectInGameShakePic.swift in Sources */,
 				9A71324820292384006DF993 /* TopTenHighScoresTableViewCell.swift in Sources */,
 				9A2C4CB82026BD5D005EAFD7 /* TopTenHighScores.swift in Sources */,
 				9A6537D12010032E002C68F2 /* GameScreen.swift in Sources */,
 				9A37E0B12001B63B0079287F /* AppDelegate.swift in Sources */,
 				9A6D5AE420043B2600617AE6 /* RegisterNewPlayer.swift in Sources */,
 				9A2C4CBA2026BD70005EAFD7 /* TopTenTotalScores.swift in Sources */,
+				9A2609FB203CE98700C9BB74 /* GameSettings.swift in Sources */,
 				9AF3A3CF200D8419001A03B9 /* MainMenu.swift in Sources */,
 				9A2C0CA32017FBB900E45DF4 /* Results.swift in Sources */,
 			);

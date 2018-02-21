@@ -15,21 +15,33 @@ class MainMenu: UIViewController {
     @IBOutlet weak var totalScore: UITextField!
     
     let defaults = UserDefaults.standard
-    
+    var currentPlayer : Player!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        userName.text = defaults.string(forKey: "userName")
-        highScore.text = defaults.string(forKey: "highScore")
-        totalScore.text = defaults.string(forKey: "totalScore")
+        
+        currentPlayer = Player(highScore: defaults.integer(forKey: "highScore") , totalScore: defaults.integer(forKey: "totalScore") , username: defaults.string(forKey: "userName")!, fireBaseId : defaults.string(forKey: "fireBaseId")!)
+        
+        userName.text = currentPlayer.username
+        highScore.text = String(currentPlayer.highScore)
+        totalScore.text = String(currentPlayer.totalScore)
         
     }
     
     @IBAction func startGame(_ sender: Any) {
-        performSegue(withIdentifier: "goToGameScreen", sender: self)
+        performSegue(withIdentifier: "selectInGameShakePic", sender: self)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.setNavigationBarHidden(true, animated: animated)
-    }    
+    override func viewWillAppear(_ animated: Bool) {       
+       self.navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "selectInGameShakePic" {
+            
+            if let destinationVC = segue.destination as? SelectInGameShakePic {
+                destinationVC.currentPlayer = currentPlayer
+            }
+        }
+    }
 }

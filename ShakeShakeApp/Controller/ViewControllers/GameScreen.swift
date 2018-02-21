@@ -28,7 +28,6 @@ class GameScreen: UIViewController {
  
     override func viewDidLoad() {
         super.viewDidLoad()
-        currentPlayer = Player(highScore: defaults.integer(forKey: "highScore") , totalScore: defaults.integer(forKey: "totalScore") , username: defaults.string(forKey: "userName")!, fireBaseId : defaults.string(forKey: "fireBaseId")!)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -57,11 +56,15 @@ class GameScreen: UIViewController {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToResults" {
             
             if let destinationVC = segue.destination as? Results {               
-                destinationVC.currentPlayerResults = currentPlayer
+                destinationVC.currentPlayer = currentPlayer
             }
         }
     }

@@ -251,41 +251,56 @@
                                                     <constraint firstAttribute="width" secondItem="RE1-MO-F0b" secondAttribute="height" multiplier="71:58" id="HMk-JQ-V4x"/>
                                                 </constraints>
                                                 <state key="normal" backgroundImage="banana"/>
+                                                <connections>
+                                                    <action selector="skinBtnClickedWithSender:" destination="x0M-iS-dje" eventType="touchUpInside" id="mlh-WC-vud"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yiN-PI-SGt">
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yiN-PI-SGt">
                                                 <rect key="frame" x="167.66666666666669" y="0.0" width="147" height="120.66666666666667"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="yiN-PI-SGt" secondAttribute="height" multiplier="71:58" id="iAf-CA-3GV"/>
                                                 </constraints>
                                                 <state key="normal" backgroundImage="?"/>
+                                                <connections>
+                                                    <action selector="skinBtnClickedWithSender:" destination="x0M-iS-dje" eventType="touchUpInside" id="ZFy-Ww-iJ6"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="o8W-EH-lid">
                                         <rect key="frame" x="40" y="135.66666666666666" width="314.33333333333331" height="120.66666666666666"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="efY-Sm-zrK">
+                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="efY-Sm-zrK">
                                                 <rect key="frame" x="0.3333333333333286" y="0.0" width="147.33333333333337" height="120.66666666666667"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="efY-Sm-zrK" secondAttribute="height" multiplier="71:58" id="EMR-9H-qTL"/>
                                                 </constraints>
                                                 <state key="normal" backgroundImage="?"/>
+                                                <connections>
+                                                    <action selector="skinBtnClickedWithSender:" destination="x0M-iS-dje" eventType="touchUpInside" id="Uwj-H6-3qd"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jlQ-Kv-dD3">
+                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jlQ-Kv-dD3">
                                                 <rect key="frame" x="167.66666666666669" y="0.0" width="147" height="120.66666666666667"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="jlQ-Kv-dD3" secondAttribute="height" multiplier="71:58" id="Xc5-c9-1DY"/>
                                                 </constraints>
                                                 <state key="normal" backgroundImage="?"/>
+                                                <connections>
+                                                    <action selector="skinBtnClickedWithSender:" destination="x0M-iS-dje" eventType="touchUpInside" id="yLj-FJ-QOc"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="awM-Qd-q3U">
+                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="awM-Qd-q3U">
                                         <rect key="frame" x="123" y="271.33333333333331" width="148" height="120.66666666666669"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="awM-Qd-q3U" secondAttribute="height" multiplier="71:58" id="Le9-v8-rEY"/>
                                         </constraints>
                                         <state key="normal" backgroundImage="?"/>
+                                        <connections>
+                                            <action selector="skinBtnClickedWithSender:" destination="x0M-iS-dje" eventType="touchUpInside" id="bm1-9q-XSh"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BBf-2o-JfG">
                                         <rect key="frame" x="108" y="407" width="178" height="120.66666666666663"/>
@@ -314,6 +329,11 @@
                         <viewLayoutGuide key="safeArea" id="NnF-Ry-8Rb"/>
                     </view>
                     <connections>
+                        <outlet property="banana" destination="RE1-MO-F0b" id="Xvz-FE-fN6"/>
+                        <outlet property="beerBottle" destination="yiN-PI-SGt" id="vaA-Lo-G58"/>
+                        <outlet property="darkMode" destination="awM-Qd-q3U" id="Sym-SA-NEy"/>
+                        <outlet property="proteinShake" destination="efY-Sm-zrK" id="JzU-bl-72P"/>
+                        <outlet property="shakeWeight" destination="jlQ-Kv-dD3" id="m5q-IF-uiw"/>
                         <segue destination="9gl-5m-NSd" kind="show" identifier="goToGameScreen" id="8Sn-GF-YK6"/>
                     </connections>
                 </viewController>

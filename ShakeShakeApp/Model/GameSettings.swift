@@ -9,5 +9,16 @@
 import Foundation
 
 struct GameSettings {
-    static let unlockSkinPoints : [String:Int] = ["banana": 0, "proteinShake": 1000, "bartendingMixer": 4000, "shakeWeight":7000, "darkMode": 10000]
+    
+    static let BANANA_CONST = "banana"
+    static let BEERBOTTLE_CONST = "beerBottle"
+    static let SHAKEWEIGHT_CONST = "shakeWeight"
+    static let PROTEINSHAkE_CONST = "proteinShake"
+    static let DARKMODE_CONST = "darkMode"
+    
+    static let unlockSkinPoints : [String:Int] = [BANANA_CONST: 0,
+                                                  BEERBOTTLE_CONST: 1000,
+                                                  PROTEINSHAkE_CONST: 4000,
+                                                  SHAKEWEIGHT_CONST: 7000,
+                                                  DARKMODE_CONST: 10000]
 }

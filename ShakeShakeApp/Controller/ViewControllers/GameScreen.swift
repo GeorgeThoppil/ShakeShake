@@ -14,45 +14,98 @@ import Firebase
 class GameScreen: UIViewController {
 
     @IBOutlet weak var gameScore: UITextField!
-    @IBOutlet weak var inGameCountDown: UIImageView!
     @IBOutlet weak var gameTimer: UITextField!
     @IBOutlet weak var gameScoreTitle: UITextField!
+    @IBOutlet weak var counter: UILabel!
+    @IBOutlet weak var shakeSkin: UIImageView!  
     
-
-    var timeLeft : Int! = 1
+    var timeLeft : Int! = 15
+    var selectedSkinName:String!
     let darkModePointsNeeded : Int! = 100000
     let motionManager = CMMotionManager()
     let defaults = UserDefaults.standard
     
+  
     var currentPlayer : Player!
  
     override func viewDidLoad() {
         super.viewDidLoad()
+         gameScoreTitle.text = "START SHAKING IN"   
     }
     
     override func viewDidAppear(_ animated: Bool) {
         
         if animated {
-            gameScore.text = "0"
-            gameScoreTitle.text = "Score"
+            //gameScore.text = "0"
+            
             //start the animation with various pictures
-            inGameCountDown.animationImages = [UIImage(named: "GameTime-3")!, UIImage(named: "GameTime-2")!, UIImage(named: "GameTime-1")!,UIImage(named: "ShakeShake")! ]
-            inGameCountDown.animationRepeatCount = 1
-            inGameCountDown.animationDuration = 4
-            inGameCountDown.startAnimating()
-           
-            //wait for the GameCountDown to finish and start the game timer and acceleration detection on the y-axis
-            Timer.scheduledTimer(withTimeInterval: inGameCountDown.animationDuration, repeats: false, block: { (timer) in
-                self.gameTimer.text = String(self.timeLeft)
-                self.inGameCountDown.image = UIImage(named: "ShakeShake")
-                self.startGameTimer()
-                self.motionManager.startDeviceMotionUpdates(to: OperationQueue.current!, withHandler: { (motion, error) in
-                    if(Int((motion?.userAcceleration.y.rounded())!) != 0) {
-                        self.currentPlayer.inGameScore = self.currentPlayer.inGameScore + 1
-                        self.gameScore.text = String(self.currentPlayer.inGameScore)
-                    }
+//            inGameCountDown.animationImages = [UIImage(named: "GameTime-3")!, UIImage(named: "GameTime-2")!, UIImage(named: "GameTime-1")!,UIImage(named: selectedSkinName)! ]
+//            inGameCountDown.animationRepeatCount = 1
+//            inGameCountDown.animationDuration = 4
+//            inGameCountDown.startAnimating()
+            
+            
+            UIView.animate(withDuration: 0.5, delay: 0.0, options: [], animations: {
+                self.counter.transform = CGAffineTransform(scaleX: 3.0, y: 3.0)
+            }, completion: { (finished) in
+                
+                UIView.animate(withDuration: 0.5, delay: 0.0, options: [], animations: {
+                    self.counter.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+                }, completion: { (finished) in
+                    self.counter.text = String(Int(self.counter.text!)! - 1)
+                    
+                    UIView.animate(withDuration: 0.5, delay: 0.0, options: [], animations: {
+                        self.counter.transform = CGAffineTransform(scaleX: 3.0, y: 3.0)
+                    }, completion: { (finished) in
+                        
+                        UIView.animate(withDuration: 0.5, delay: 0.0, options: [], animations: {
+                            self.counter.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+                        }, completion: { (finished) in
+                            self.counter.text = String(Int(self.counter.text!)! - 1)
+                            UIView.animate(withDuration: 0.5, delay: 0.0, options: [], animations: {
+                                self.counter.transform = CGAffineTransform(scaleX: 3.0, y: 3.0)
+                            }, completion: { (finished) in
+                                
+                                UIView.animate(withDuration: 0.5, delay: 0.0, options: [], animations: {
+                                    self.counter.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+                                }, completion: { (finished) in
+                                    self.counter.isHidden = true
+                                    self.shakeSkin.isHidden = false
+                                    self.gameScore.text = "0"                                   
+                                    self.gameScoreTitle.text = "Score"
+                                    self.gameTimer.text = "00:" + String(self.timeLeft)
+                                    self.shakeSkin.image = UIImage(named: self.selectedSkinName)
+                                    
+                                    self.startGameTimer()
+                                    self.motionManager.startDeviceMotionUpdates(to: OperationQueue.current!, withHandler: { (motion, error) in
+                                        if(Int((motion?.userAcceleration.y.rounded())!) != 0) {
+                                            self.currentPlayer.inGameScore = self.currentPlayer.inGameScore + 1
+                                            self.gameScore.text = String(self.currentPlayer.inGameScore)
+                                        }
+                                    })
+                                    
+                                    
+                                })
+                            })
+                            
+                        })
+                    })
+                    
                 })
             })
+           
+            //wait for the GameCountDown to finish and start the game timer and acceleration detection on the y-axis
+//            Timer.scheduledTimer(withTimeInterval: 6.0, repeats: false, block: { (timer) in
+//                self.gameTimer.text = String(self.timeLeft)
+//                self.inGameCountDown.image = UIImage(named: self.selectedSkinName)
+//                self.startGameTimer()
+//                self.motionManager.startDeviceMotionUpdates(to: OperationQueue.current!, withHandler: { (motion, error) in
+//                    if(Int((motion?.userAcceleration.y.rounded())!) != 0) {
+//                        self.currentPlayer.inGameScore = self.currentPlayer.inGameScore + 1
+//                        self.gameScore.text = String(self.currentPlayer.inGameScore)
+//                    }
+//                })
+//            })
         }
     }
     
@@ -131,7 +184,13 @@ class GameScreen: UIViewController {
                 {
                      AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
                 }
-                self.gameTimer.text = String(self.timeLeft)
+                if self.timeLeft < 10 {
+                     self.gameTimer.text = "00:0" + String(self.timeLeft)
+                }
+                else{
+                     self.gameTimer.text = "00:" + String(self.timeLeft)
+                }
+               
             }
         })
     }

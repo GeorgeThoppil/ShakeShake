@@ -21,4 +21,10 @@ struct GameSettings {
                                                   PROTEINSHAkE_CONST: 4000,
                                                   SHAKEWEIGHT_CONST: 7000,
                                                   DARKMODE_CONST: 10000]
+    
+    static let buttonNameToTag : [String:Int] = [BANANA_CONST : 1,
+                                                 BEERBOTTLE_CONST: 2,
+                                                 PROTEINSHAkE_CONST: 3,
+                                                 SHAKEWEIGHT_CONST : 4,
+                                                 DARKMODE_CONST: 5]
 }

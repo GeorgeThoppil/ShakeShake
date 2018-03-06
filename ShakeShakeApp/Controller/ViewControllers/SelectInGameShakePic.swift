@@ -18,11 +18,23 @@ class SelectInGameShakePic: UIViewController {
     @IBOutlet weak var shakeWeight: UIButton!
     @IBOutlet weak var darkMode: UIButton!
     @IBOutlet weak var proteinShake: UIButton!
+    @IBOutlet weak var startGame: UIButton!
     
     var selectedSkinBtn : UIButton!
+    var selectedSkinName : String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        for(skinName, unlocked) in currentPlayer.getUnlockedSkins() {
+            //print(skinName, value)
+            if unlocked {
+                var tmpBtn = self.view.viewWithTag(GameSettings.buttonNameToTag[skinName]!) as? UIButton
+                tmpBtn?.setImage(UIImage(named: skinName) , for: .normal)
+            }
+      
+        }
+        
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -40,8 +52,9 @@ class SelectInGameShakePic: UIViewController {
             
             if let destinationVC = segue.destination as? GameScreen {
                 destinationVC.currentPlayer = currentPlayer
+                destinationVC.selectedSkinName = selectedSkinName
             }
-        }
+        } 
     }
     
     func isSkinUnlocked(skinName:String, skinBtn:UIButton) -> Void {
@@ -56,6 +69,8 @@ class SelectInGameShakePic: UIViewController {
             skinBtn.layer.borderColor = UIColor.black.cgColor
             
             selectedSkinBtn = skinBtn
+            selectedSkinName = skinName
+            startGame.isEnabled = true
             
         } else {
             let message = "Get over \(GameSettings.unlockSkinPoints[skinName] ?? 0) total points to unlock this item!"

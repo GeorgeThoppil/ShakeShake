@@ -19,7 +19,7 @@ class GameScreen: UIViewController {
     @IBOutlet weak var counter: UILabel!
     @IBOutlet weak var shakeSkin: UIImageView!  
     
-    var timeLeft : Int! = 15
+    var timeLeft : Int! = 1
     var selectedSkinName:String!
     let darkModePointsNeeded : Int! = 100000
     let motionManager = CMMotionManager()
@@ -116,7 +116,7 @@ class GameScreen: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToResults" {
             
-            if let destinationVC = segue.destination as? Results {               
+            if let destinationVC = segue.destination as? ResultsPageViewController {
                 destinationVC.currentPlayer = currentPlayer
             }
         }

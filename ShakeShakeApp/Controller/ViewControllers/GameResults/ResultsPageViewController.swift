@@ -10,6 +10,8 @@ import UIKit
 
 class ResultsPageViewController: UIPageViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource {
     
+    var currentPlayer : Player!
+    
     lazy var vcArr : [UIViewController] = {
        return [self.getViewController(name: "Results"),
                self.getViewController(name: "TopTenHighScores"),
@@ -25,7 +27,8 @@ class ResultsPageViewController: UIPageViewController, UIPageViewControllerDeleg
         
         
         //set first view controller on load
-        if let firstVC = vcArr.first {
+        if let firstVC = vcArr.first as? Results {
+            firstVC.currentPlayer = currentPlayer
             setViewControllers([firstVC], direction: .forward, animated: true, completion: nil)
         }
     }

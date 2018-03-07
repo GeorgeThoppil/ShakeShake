@@ -45,4 +45,14 @@ class Player {
         
         return unlockedSkins
     }
+    
+    func toNextLevel() -> Double {
+          for(skinName, value) in GameSettings.unlockSkinPoints {
+            if self.totalScore < value {
+                return (Double(self.totalScore) / Double(value)) * 100.00
+            }
+        }
+        
+        return 100.00
+    }
 }

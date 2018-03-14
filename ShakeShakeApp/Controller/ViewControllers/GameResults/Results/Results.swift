@@ -21,18 +21,18 @@ class Results: UIViewController,  UICircularProgressRingDelegate  {
     let scoresRef = Database.database().reference(withPath: "scores")
     
     
+    @IBOutlet weak var scoreLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         scoresRef.keepSynced(true)
         gameProgress.delegate = self
-        
-        print(self.currentPlayer.toNextLevel())
+        scoreLabel.text = String(currentPlayer.inGameScore)
         
         Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { (Timer) in
             self.gameProgress.font = UIFont.systemFont(ofSize: 50)
             self.gameProgress.animationStyle = kCAMediaTimingFunctionLinear
-            self.gameProgress.setProgress(value: CGFloat(self.currentPlayer.toNextLevel()), animationDuration: 5, completion: nil)
+            self.gameProgress.setProgress(value: CGFloat(self.currentPlayer.toNextLevel()), animationDuration: 3, completion: nil)
         }
       
     }
